@@ -2,6 +2,7 @@
 An attempt to generalize the Fraenkel-Simpson example of
 square-dense inifinite words.
 """
+import math as math
 
 import naive as naive
 import naive_occ as naive_occ
@@ -64,7 +65,7 @@ def sq_rich_study(n, m, u = lambda x : x) :
     nb_squares = naive.nb_squares(word)
     print("{}\t{}\t{}\t{}".format(i, word_len, nb_squares, word_len - nb_squares + 1))
     word += "0" * u_i_next + "1" + "0" * u_i + "1" + "0" * u_i_next + "1"
-    word_len += 2 * u_i + u_i_next + 2
+    word_len += 2 * u_i_next + u_i + 3
     u_i = u_i_next
     u_i_next = u(i + 3)
 
@@ -126,19 +127,26 @@ def sum_adic(p, n) :
     sum += adic(p, i)
   return sum
 
+def pow(n, p, q) :
+  n_pow_p = math.pow(n, p)
+  root = 0
+  while math.pow(root, q) <= n_pow_p :
+    root += 1
+  return root - 1
+
 ##########################################
 # main
 
-u = lambda x : sum_adic(2, x)
-n = 500
+u = sq
+n = 10
 
-#for i in range(n + 1) :
-# print(sq_rich_of(u, i))
+for i in range(n + 1) :
+ print(sq_rich_of(u, i))
 
 #sq_rich_study(0, n, u)
 
-for i in range(n + 1) :
-  print(u(i))
+#for i in range(n + 1) :
+#  print(u(i))
 
 
 

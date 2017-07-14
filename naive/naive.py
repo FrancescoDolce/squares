@@ -99,7 +99,7 @@ def squares_info(word) :
   print("### square defect : {}".format(defect))
   print("### square distribution :")
   print_squares_distribution_with_word(word, sq_distrib, ('_', '-', '*'))
-  if not input("print the square factors ? [Y/n] : ") in ["n", "N", "no", "No"]:
+  if input("print the square factors ? [y/N] : ") in ["y", "Y", "yes", "Yes"] :
     print("### squares :")
     for square, first_pos in squares_positions :
       print("{}\t{}".format(first_pos, square))
