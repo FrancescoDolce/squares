@@ -4,8 +4,8 @@ square-dense inifinite words.
 """
 import math as math
 
-import naive as naive
-import naive_occ as naive_occ
+#import naive as naive
+#import naive_occ as naive_occ
 
 ##########################################
 # the original Fraenkel-Simpson construction
